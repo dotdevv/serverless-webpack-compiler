@@ -8,6 +8,8 @@
   "author": "brod <brod@dotdev.com.au>",
   "license": "ISC",
   "scripts": {
+    "check:compile": "tsc --project tsconfig.json --noEmit",
+    "check:lint": "tslint --project tsconfig.json",
     "watch": "tsc --project ./tsconfig.json --watch",
     "build": "tsc --project ./tsconfig.json"
   },
