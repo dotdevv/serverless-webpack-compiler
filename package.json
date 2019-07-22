@@ -12,11 +12,14 @@
     "build": "tsc --project ./tsconfig.json"
   },
   "devDependencies": {
+    "@types/glob": "^7.1.1",
     "@types/node": "^10.12.14",
     "@types/webpack": "^4.4.21",
+    "tslint": "^5.18.0",
     "typescript": "^3.2.2"
   },
   "dependencies": {
+    "glob": "^7.1.4",
     "webpack": "^4.27.1"
   },
   "files": [
