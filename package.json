@@ -15,14 +15,14 @@
   },
   "devDependencies": {
     "@types/glob": "^7.1.1",
-    "@types/node": "^10.12.14",
-    "@types/webpack": "^4.4.21",
-    "tslint": "^5.18.0",
-    "typescript": "^3.2.2"
+    "@types/node": "^12.12.7",
+    "@types/webpack": "^4.39.8",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.2"
   },
   "dependencies": {
-    "glob": "^7.1.4",
-    "webpack": "^4.27.1"
+    "glob": "^7.1.6",
+    "webpack": "^4.41.2"
   },
   "files": [
     "dist"
