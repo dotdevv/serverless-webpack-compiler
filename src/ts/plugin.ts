@@ -34,8 +34,10 @@ export class ServerlessWebpackCompiler {
   constructor(
     private serverless: any,
   ) {
-    this.options = serverless.service.custom["serverless-webpack-compiler"] || {
+    this.options = {
       configuration: "webpack.config.js",
+      outputDirectory: "package",
+      ...serverless.service.custom["serverless-webpack-compiler"],
     };
   }
 
@@ -68,7 +70,7 @@ export class ServerlessWebpackCompiler {
   public configureWebpackOutput = (): void => {
     ServerlessWebpackCompiler.webpackOutput = {
       libraryTarget: "commonjs2",
-      path: Path.resolve(this.serverless.config.servicePath, "package"),
+      path: Path.resolve(this.serverless.config.servicePath, this.options.outputDirectory),
       filename: "[name].js",
     };
   }
