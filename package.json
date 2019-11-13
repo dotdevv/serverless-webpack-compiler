@@ -3,7 +3,8 @@
   "name": "@dotdev/serverless-webpack-compiler",
   "version": "0.1.3",
   "description": "Webpack compiler plugin for Serverless Framework",
-  "main": "dist/index.js",
+  "main": "package/index.js",
+  "types": "package/index.d.ts",
   "repository": "https://github.com/dotdevv/serverless-webpack-compiler.git",
   "author": "brod <brod@dotdev.com.au>",
   "license": "ISC",
@@ -25,6 +26,6 @@
     "webpack": "^4.41.2"
   },
   "files": [
-    "dist"
+    "package"
   ]
 }
