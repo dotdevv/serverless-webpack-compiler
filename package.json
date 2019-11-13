@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@dotdev/serverless-webpack-compiler",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Serverless Framework Plugin to run Webpack Compilers",
   "main": "package/index.js",
   "types": "package/index.d.ts",

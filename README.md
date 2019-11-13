@@ -26,6 +26,7 @@ package:
 custom:
   serverless-webpack-compiler:
     configuration: "webpack.config.js" # Relative path to webpack configuration.
+    outputDirectory: "package" # Relative webpack output directory.
 ```
 
 Configure `webpack.config.js` options.
