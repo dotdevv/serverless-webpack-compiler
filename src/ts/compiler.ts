@@ -44,6 +44,13 @@ export class Compiler {
         this.stats[iter].start = new Date().getTime();
       });
 
+      compiler.hooks.compilation.tap("Serverless", (compilation) => {
+        const compilerName = this.compilerName(compiler, iter);
+        compilation.hooks.chunkAsset.tap("Serverless", (compilationModule) => {
+          this.logger(`[Webpack Compiler] (${compilerName}) compiled: ${compilationModule.name}`);
+        });
+      });
+
       compilePromises.push(new Promise<webpack.Stats>((resolve, reject) => {
 
         compiler.run((error, stats) => {
@@ -75,6 +82,18 @@ export class Compiler {
         this.logger(`[Webpack Compiler] ${this.stats[iter].start === 0 ? "build" : "rebuild"} started (${this.compilerName(compiler, iter)})`);
 
         this.stats[iter].start = new Date().getTime();
+      });
+
+      const moduleHashes: {[key: string]: string} = {};
+
+      compiler.hooks.compilation.tap("Serverless", (compilation) => {
+        const compilerName = this.compilerName(compiler, iter);
+        compilation.hooks.chunkAsset.tap("Serverless", (compilationModule) => {
+          if (!moduleHashes[compilationModule.name] || moduleHashes[compilationModule.name] !== compilationModule.hash) {
+            this.logger(`[Webpack Compiler] (${compilerName}) compiled: ${compilationModule.name}`);
+            moduleHashes[compilationModule.name] = compilationModule.hash;
+          }
+        });
       });
 
       compiler.watch({}, (error, stats) => {
