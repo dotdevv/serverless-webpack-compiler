@@ -1,11 +1,20 @@
 {
   "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "package",
+    "lib": [
+      "ES2015",
+      "ES2017",
+      "ES2018",
+      "ES2019"
+    ],
     "module": "commonjs",
-    "target": "es5",
     "noImplicitAny": true,
+    "outDir": "package",
     "sourceMap": true,
-    "lib": [ "ES2015", "ES2017" ],
-    "outDir": "dist"
+    "target": "es5"
   },
-  "include": [ "./src/ts/**/*.ts" ],
+  "include": [
+    "./src/ts/**/*.ts"
+  ]
 }

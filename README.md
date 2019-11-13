@@ -3,22 +3,52 @@
 Plugin for [Serverless](https://serverless.com) which enables webpack compilers during deployment routine.
 
 ### Install
+
+This package is private and requires access to the `@dotdev` organization to install.
+
 ```bash
 yarn add -D @dotdev/serverless-webpack-compiler
 ```
 
 ### Usage
-Add to the list of plugins within `serverless.yml`.
+
+Configure `serverless.yml` plugins, options & excludes.
 
 ```yaml
 plugins:
-  - serverless-webpack-compiler
-```
+  - "@dotdev/serverless-webpack-compiler"
 
-Configure options.
+package:
+  exclude:
+    - "./node_modules/.bin/**" # Optional
+    - "./node_modules/.cache/**" # Optional
 
-```yaml
 custom:
   serverless-webpack-compiler:
     configuration: "webpack.config.js" # Relative path to webpack configuration.
+```
+
+Configure `webpack.config.js` options.
+
+```js
+const WebpackPluginServerless = require("@dotdev/serverless-webpack-compiler");
+
+module.exports = {
+  entry: WebpackPluginServerless.webpackEntry,
+  output: WebpackPluginServerless.webpackOutput,
+};
+```
+
+#### Yarn Workspaces
+
+Configure `package.json` dependency hoisting.
+
+```json
+{
+  "workspaces": {
+    "nohoist": [
+      "**/*"
+    ]
+  },
+}
 ```
