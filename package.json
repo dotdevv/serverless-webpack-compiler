@@ -1,25 +1,30 @@
 {
   "private": false,
   "name": "@dotdev/serverless-webpack-compiler",
-  "version": "0.1.3",
-  "description": "Webpack compiler plugin for Serverless Framework",
-  "main": "dist/index.js",
+  "version": "1.0.0",
+  "description": "Serverless Framework Plugin to run Webpack Compilers",
+  "main": "package/index.js",
+  "types": "package/index.d.ts",
   "repository": "https://github.com/dotdevv/serverless-webpack-compiler.git",
-  "author": "brod <brod@dotdev.com.au>",
+  "author": "Brod <brod@dotdev.com.au>",
   "license": "ISC",
   "scripts": {
-    "watch": "tsc --project ./tsconfig.json --watch",
-    "build": "tsc --project ./tsconfig.json"
+    "check:compile": "tsc --project tsconfig.json --noEmit",
+    "check:lint": "tslint --project tsconfig.json",
+    "package": "tsc --project ./tsconfig.json"
   },
   "devDependencies": {
-    "@types/node": "^10.12.14",
-    "@types/webpack": "^4.4.21",
-    "typescript": "^3.2.2"
+    "@types/glob": "^7.1.1",
+    "@types/node": "^12.12.7",
+    "@types/webpack": "^4.39.8",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.2"
   },
   "dependencies": {
-    "webpack": "^4.27.1"
+    "glob": "^7.1.6",
+    "webpack": "^4.41.2"
   },
   "files": [
-    "dist"
+    "package"
   ]
 }
