@@ -109,5 +109,6 @@ export class ServerlessWebpackCompiler {
 export namespace ServerlessWebpackCompiler {
   export interface Options {
     configuration: string;
+    outputDirectory: string;
   }
 }
